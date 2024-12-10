@@ -5,9 +5,8 @@ import pandas as pd
 from datetime import datetime
 import os
 
-# Define the paths to the files
-model_path = os.path.join(os.getcwd(), 'model.pkl')
-vectorizer_path = os.path.join(os.getcwd(), 'vectorizer.pkl')
+model_path = os.path.join(os.getcwd(), 'hate_speech_model.pkl')
+vectorizer_path = os.path.join(os.getcwd(), 'tfidf_vectorizer.pkl')
 
 
 
