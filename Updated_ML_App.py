@@ -3,17 +3,12 @@ import joblib
 import re
 import pandas as pd
 from datetime import datetime
-import requests
-from io import BytesIO
+import os
 
+# Define the paths to the files
+model_path = os.path.join(os.getcwd(), 'model.pkl')
+vectorizer_path = os.path.join(os.getcwd(), 'vectorizer.pkl')
 
-def load_from_url(url):
-    response = requests.get(url)
-    return joblib.load(BytesIO(response.content))
-
-
-model_url="https://github.com/Kameshrasu/Hatespeech-Detection/blob/main/hate_speech_model.pkl"
-vectorizer_url="https://github.com/Kameshrasu/Hatespeech-Detection/blob/main/tfidf_vectorizer.pkl"
 
 
 
@@ -62,8 +57,9 @@ if 'history' not in st.session_state:
 
 # Load model and vectorizer
 try:
-    model = load_from_url(model_url)
-    vectorizer = load_from_url(vectorizer_url)
+    model = joblib.load(model_path)
+    vectorizer = joblib.load(vectorizer_path)
+    
 
 except Exception as e:
     st.error(f"Error loading model files: {str(e)}")
