@@ -3,6 +3,19 @@ import joblib
 import re
 import pandas as pd
 from datetime import datetime
+import requests
+from io import BytesIO
+
+
+def load_from_url(url):
+    response = requests.get(url)
+    return joblib.load(BytesIO(response.content))
+
+
+model_url="https://github.com/Kameshrasu/Hatespeech-Detection/blob/main/hate_speech_model.pkl"
+vectorizer_url="https://github.com/Kameshrasu/Hatespeech-Detection/blob/main/tfidf_vectorizer.pkl"
+
+
 
 # Basic page config without icon
 st.set_page_config(
@@ -49,8 +62,9 @@ if 'history' not in st.session_state:
 
 # Load model and vectorizer
 try:
-    model = joblib.load(r'C:\Users\kames\OneDrive\Desktop\infoysproject\model\hate_speech_model.pkl')
-    vectorizer = joblib.load(r'C:\Users\kames\OneDrive\Desktop\infoysproject\model\tfidf_vectorizer.pkl')
+    model = load_from_url(model_url)
+    vectorizer = load_from_url(vectorizer_url)
+
 except Exception as e:
     st.error(f"Error loading model files: {str(e)}")
     st.stop()
