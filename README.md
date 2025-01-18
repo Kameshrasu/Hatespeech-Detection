@@ -1,51 +1,83 @@
-## Hate Speech Detection
 
-This project is a Python-based application that detects whether a given message is hate speech or non-hate speech. It leverages machine learning techniques to classify text data, making it useful for social media monitoring, content moderation, and identifying harmful speech.
+# Hate Speech Detection
 
-## Features
+### **Author:** Kamesh R  
 
-- **Text Classification**: Classifies messages as either hate speech or non-hate speech.
-- **Real-time Detection**: Detects hate speech in real-time by analyzing the input message.
-- **User-friendly Interface**: Simple and easy-to-use interface for inputting text and viewing results.
 
-## Installation
+---
 
-Follow these steps to set up the project locally:
+## **Introduction**
+Hate speech is a growing issue in online spaces, targeting individuals and groups based on factors like race, religion, gender, or sexual orientation.  
+The Hate Speech Detection Project addresses this challenge by identifying and categorizing harmful language that incites hate or violence in digital environments.  
+The goal is to create a safer and more inclusive online space by detecting and moderating hate speech, promoting healthier digital communities.
 
-### Prerequisites
+---
 
-- Python 3.x
-- pip (Python package manager)
+## **Objective**
+To develop an accurate model for detecting hate speech in online text data.
 
-### Steps to Install
+---
 
-1. Clone the repository:
+## **Methodology**
+We leverage **Natural Language Processing (NLP)** and **Machine Learning (ML)** techniques to analyze and classify text.
 
-    ```bash
-    git clone https://github.com/Kameshrasu/Hatespeech-Detection.git
-    ```
+---
 
-2. Navigate to the project directory:
+## **Key Features**
+1. **Data Collection**  
+   - **Source:** Curated dataset from Mendeley Data.  
+   - **Scope:** Contains over 200,000 samples for comprehensive representation.  
+   - **Accessibility:** Open-access dataset to support further research and development.
 
-    ```bash
-    cd hatespeech-detection
-    ```
+2. **Balanced Dataset**  
+   - **Non-Hate Speech:** 100,452 instances  
+   - **Hate Speech:** 98,249 instances  
 
-3. Install required dependencies:
+3. **Data Preprocessing**  
+   - **Text Cleaning:** Removes irrelevant elements like punctuation and HTML tags.  
+   - **Lowercasing:** Ensures text consistency.  
+   - **Tokenization:** Breaks sentences into individual words (tokens).  
+   - **Lemmatization & Stemming:** Reduces words to their root forms for analysis.
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+4. **Feature Extraction**  
+   - **Objective:** Transform raw text data into numerical representations for ML models.  
+   - **Approach:** Used **TF-IDF (Term Frequency-Inverse Document Frequency)** to highlight words specific to hate speech.
 
-## Usage
+5. **Train-Test Split**  
+   - **Training Set:** 80% of the data.  
+   - **Testing Set:** 20% of the data.  
+   - **Validation:** 20% of the training data.
 
-1. Run the application:
+---
 
-    ```bash
-    streamlit run Updated_ML_App.py
-    ```
+## **Model Building**
+Several models were trained and evaluated:  
+- **Logistic Regression:** Predicts the probability of a text being hate speech (Accuracy: 81%).  
+- **Random Forest:** Combines decision trees for improved accuracy (Accuracy: 81%).  
+- **Naive Bayes:** Uses Bayes' theorem to calculate the likelihood (Accuracy: 79%).  
+- **Deep Learning:** Advanced neural networks capable of learning complex patterns (Accuracy: 83%).
 
-2. Input a message when prompted. The app will output whether the message is hate speech or not.
+---
+
+## **Deployment**
+The model is deployed as a **Streamlit Web App**, making it accessible and interactive.  
+- **Platform:** Streamlit Cloud.  
+- **How It Works:** Users enter text, and the system predicts if it contains hate speech.  
+
+---
+
+## **Impact**
+The Hate Speech Detection Project contributes to:  
+1. **Online Safety:** Protecting individuals and groups from abuse.  
+2. **Support for Moderation:** Assisting platforms in managing harmful content.  
+3. **Community Well-Being:** Promoting healthier digital spaces.
+
+---
+
+
+
+
+
 
 ## Live Demo
 
